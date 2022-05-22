@@ -12,7 +12,7 @@ function isHabitablePlanet(planet) {
   );
 }
 
-function loadPlanetsData() {
+async function loadPlanetsData() {
   return new Promise((resolve, reject) => {
     fs.createReadStream(path.join(__dirname, '..', '..', 'data', 'kepler_data.csv'))
       .pipe(
@@ -23,6 +23,8 @@ function loadPlanetsData() {
       )
       .on('data', async data => {
         if (isHabitablePlanet(data)) {
+          console.log('here');
+          console.log(data);
           savePlanet(data);
         }
       })
