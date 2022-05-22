@@ -1,6 +1,7 @@
 const http = require('http');
 const mongoose = require('mongoose');
 const app = require('./app');
+const { loadSpaceXLaunchesData } = require('./models/launches.model');
 const { loadPlanetsData } = require('./models/planets.model');
 
 const PORT = process.env.PORT || 8000;
@@ -16,8 +17,9 @@ mongoose.connection.on('error', err => {
 });
 
 async function startServer() {
-  mongoose.connect(MONGO_URL);
+  await mongoose.connect(MONGO_URL);
   await loadPlanetsData();
+  await loadSpaceXLaunchesData();
   server.listen(PORT, () => {
     console.log(`listening on port ${PORT}...`);
   });

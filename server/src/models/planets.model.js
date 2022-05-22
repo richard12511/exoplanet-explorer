@@ -23,8 +23,6 @@ async function loadPlanetsData() {
       )
       .on('data', async data => {
         if (isHabitablePlanet(data)) {
-          console.log('here');
-          console.log(data);
           savePlanet(data);
         }
       })

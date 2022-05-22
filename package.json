@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/richard12511/exoplanet-explorer/issues"
   },
-  "homepage": "https://github.com/richard12511/exoplanet-explorer#readme"
+  "homepage": "https://github.com/richard12511/exoplanet-explorer#readme",
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
 }
