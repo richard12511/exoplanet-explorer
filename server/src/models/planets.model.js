@@ -44,7 +44,7 @@ async function getAllPlanets() {
 
 async function savePlanet(data) {
   try {
-    await planets.updateOne(
+    await planets.findOneAndUpdate(
       {
         keplerName: data.kepler_name,
       },
